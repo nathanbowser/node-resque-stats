@@ -14,9 +14,9 @@ local map = function (fn, array)
 end
 
 -- Gather basic stats
-stats['failed'] = redis.call('mget', prefix .. 'stat:failed')[1]
-stats['processed'] = redis.call('mget', prefix .. 'stat:processed')[1]
-stats['failing'] = redis.call('llen', prefix .. 'failed')
+stats['failed'] = tonumber(redis.call('mget', prefix .. 'stat:failed')[1])
+stats['processed'] = tonumber(redis.call('mget', prefix .. 'stat:processed')[1])
+stats['failing'] = tonumber(redis.call('llen', prefix .. 'failed'))
 
 -- Count the number of workers and find which are active
 local workers = redis.call('smembers', prefix .. 'workers')
