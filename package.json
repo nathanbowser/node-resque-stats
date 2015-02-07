@@ -1,0 +1,26 @@
+{
+  "name": "node-resque-stats",
+  "version": "1.0.0",
+  "description": "Fetches interesting resque stats",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nathanbowser/node-resque-stats"
+  },
+  "keywords": [
+    "resque",
+    "stats"
+  ],
+  "author": "Nathan Bowser <nbowser@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathanbowser/node-resque-stats/issues"
+  },
+  "homepage": "https://github.com/nathanbowser/node-resque-stats",
+  "dependencies": {
+    "redis": "^0.12.1"
+  }
+}
