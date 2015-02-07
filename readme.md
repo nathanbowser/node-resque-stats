@@ -1,8 +1,7 @@
 resque-statistics
 ========
 
-This is a node module that you can be used to get aggregate statistical information about your resque instance. It gives you realtime information
-about your resque queues and workers by querying redis via a lua script.
+This is a node module that can be used to get statistical information about your resque instance. It gives you realtime information about your resque queues and workers by querying redis via a lua script.
 
 example
 =======
