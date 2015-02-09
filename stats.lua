@@ -1,5 +1,7 @@
-local prefix = ARGV[1]  or 'resque:'
+local prefix = ARGV[1]
 local stats = {}
+
+stats.prefix = prefix
 
 local prepend = function (x)
   return prefix ..  'worker:' .. x
