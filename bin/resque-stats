@@ -6,7 +6,7 @@ var stats = require('../')
 stats({
   host: argv.h,
   port: argv.p,
-  password: argv.P,
+  password: argv.a,
   namespace: argv.n
 }, function (err, stats) {
   if (err) {

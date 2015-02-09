@@ -49,7 +49,7 @@ command-line usage
 ==================
 
 ```
-resque-stats -h <redis-host> -p <redis-port> -P <redis-password> -n <namespace>
+resque-stats -h <redis-host> -p <redis-port> -a <redis-password> -n <namespace>
 ```
 
 All arguments are optional.
