@@ -22,15 +22,14 @@ stats['failing'] = tonumber(redis.call('llen', prefix .. 'failed'))
 
 -- Count the number of workers and find which are active
 local workers = redis.call('smembers', prefix .. 'workers')
-local unpacked = unpack(map(prepend, workers))
 
 stats['workers'] = workers
 stats['queues'] = {}
 stats['processing'] = {}
 local working = 0
 
-if unpacked then
-  local jobs = redis.call('mget', unpacked)
+if workers[1] ~= nil then
+  local jobs = redis.call('mget', unpack(map(prepend, workers)))
 
   for i, j in ipairs(jobs) do
     if j then
