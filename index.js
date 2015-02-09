@@ -26,7 +26,6 @@ module.exports = function (opts, next) {
 
   if (!options.client) {
     db = redis.createClient(options.port, options.host, options.options)
-
     if (options.password) {
       try {
         db.auth(options.password)

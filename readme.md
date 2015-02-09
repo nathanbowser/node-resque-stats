@@ -5,7 +5,15 @@ This is a node module that can be used to get statistical information about your
 
 example
 =======
-TODO
+
+```javascript
+var stats = require('node-resque-stats')
+
+stats(function (err, stats) {
+  console.log(stats)
+})
+```
+
 
 ```javascript
 { failing: 5944,
@@ -41,8 +49,10 @@ command-line usage
 ==================
 
 ```
-TODO
+resque-stats -h <redis-host> -p <redis-port> -P <redis-password> -n <namespace>
 ```
+
+All arguments are optional.
 
 Install
 =======
@@ -54,7 +64,7 @@ $ npm install resque-statistics
 
 and to install the command do:
 ```
-$ npm install -g resque-statistics
+$ npm install -g node-resque-stats
 ```
 
 License

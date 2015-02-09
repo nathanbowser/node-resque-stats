@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+var stats = require('../')
+  , argv = require('minimist')(process.argv.slice(2))
+
+stats({
+  host: argv.h,
+  port: argv.p,
+  password: argv.P,
+  namespace: argv.n
+}, function (err, stats) {
+  if (err) {
+    throw err
+  }
+  console.log(JSON.stringify(stats))
+  process.exit(0)
+})
