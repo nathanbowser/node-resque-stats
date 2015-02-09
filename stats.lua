@@ -25,6 +25,7 @@ local workers = redis.call('smembers', prefix .. 'workers')
 local unpacked = unpack(map(prepend, workers))
 
 stats['workers'] = workers
+stats['queues'] = {}
 stats['processing'] = {}
 local working = 0
 
@@ -36,7 +37,7 @@ if unpacked then
       working = working + 1
 
       local job = cjson.decode(j)
-      local queue = stats[job.queue]
+      local queue = stats['queues'][job.queue]
 
       -- attach this job on that worker
       stats['processing'][job.worker] = job
@@ -44,7 +45,7 @@ if unpacked then
       if queue then
         queue.working = queue.working + 1
       else
-        stats[job.queue] = {
+        stats['queues'][job.queue] = {
           pending= 0,
           working= 1
         }
@@ -56,7 +57,6 @@ end
 stats['working'] = working
 
 -- Find the number of pending jobs in each queue
-stats['queues'] = {}
 local queues = redis.call('smembers', prefix .. 'queues')
 for i, q in ipairs(queues) do
   local len = redis.call('llen', prefix .. 'queue:' .. q)
