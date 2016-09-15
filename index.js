@@ -36,6 +36,8 @@ module.exports = function (opts, next) {
   }
 
   db.eval(script, 0, options.namespace + ':', function (err, result) {
+    // close connection to redids
+    db.quit();
     if (err) {
       return next(err)
     }
