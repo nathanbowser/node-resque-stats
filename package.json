@@ -1,6 +1,6 @@
 {
   "name": "node-resque-stats",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Fetches interesting resque stats",
   "main": "index.js",
   "bin": {
